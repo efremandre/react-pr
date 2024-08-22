@@ -1,0 +1,140 @@
+.output__wrapper {
+    box-sizing: border-box;
+    padding: 8px 20px;
+    font-size: 1rem;
+    background: #EFF4F5;
+    border-radius: 10px;
+}
+
+.out-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+.out-header__item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.out-header__item-items {
+    display: flex;
+    gap: 1rem;
+}
+
+.out-header__item-items span:first-child {
+    color: #3C4B55;
+    font-weight: 700;
+}
+
+.out-header__date {
+    flex-shrink: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.out-header__date-items {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 13px;
+}
+
+.out-item {
+    padding: 16px 0;
+    border-top: 2px solid #596F7E;
+}
+
+.out-item__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.out-item__item {
+    box-sizing: border-box;
+    position: relative;
+    flex: 0 1 20%;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    padding: 8px 16px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 970px) {
+    .out-item__item {
+        flex: 0 1 25%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .out-item__item {
+        flex: 0 1 50%;
+    }
+}
+
+.out-item__item:before,
+.out-item__item:after {
+    content: '';
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    width: 16px;
+    height: 100%;
+    background: #EFF4F5;
+}
+
+.out-item__item:before {
+    left: 0;
+}
+
+.out-item__item:after {
+    right: 0;
+}
+
+.out-item__item span {
+    display: flex;
+}
+
+.out-item__item span:first-child {
+    flex: 1 0 auto;
+    font-weight: 700;
+}
+
+.out-item__item span:last-child {
+    flex: 0 0 25px;
+}
+
+.out-item__item_text span:last-child {
+    display: inline-block;
+    flex-basis: 50% !important;
+    overflow: hidden;
+    font-size: 13px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.out-item__item_text  {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.out-item__item_text:hover span:last-child {
+    animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
