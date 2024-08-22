@@ -1,6 +1,6 @@
 import React from 'react';
 import './Output.css'
-import {Header, HeaderDatesItems, HeaderItem, ItemType} from "../../types";
+import {Header, ItemType} from "../../types";
 import HeaderData from "./HeaderData";
 import OutItem from "./OutItem";
 
@@ -11,24 +11,27 @@ interface OutputProps {
     }
 }
 
-
-
 const Output: React.FC<OutputProps> = ({output}) => {
     const {header, items} = output
-    const renderHeaderItems = (items: HeaderItem | HeaderDatesItems) => (
-        <div key={items.id} className="out-header__item-items">
-            <HeaderData items={items}/>
-        </div>
-    )
+
+    if(!output) return <h1>Упс, что-то пошло не так... :(</h1>
 
     return (
         <div className='output output__wrapper'>
             <div className='output__out-header out-header'>
                 <div className='out-header__item'>
-                    {header.headerItem.map(renderHeaderItems)}
+                    {header.headerItem.map(items => (
+                        <div key={items.id} className="out-header__item-items">
+                            <HeaderData items={items}/>
+                        </div>
+                    ))}
                 </div>
                 <div className='out-header__date'>
-                    {header.headerDate.map(renderHeaderItems)}
+                    {header.headerDate.map(items => (
+                        <div key={items.id} className="out-header__date-items">
+                            <HeaderData items={items}/>
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className='output__out-item out-item'>
