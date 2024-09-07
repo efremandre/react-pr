@@ -24,6 +24,7 @@ git clone https://github.com/efremandre/react-pr.git
 cd react-pr
 npm install
 npm start
+```
 
 ## Контакты
 
